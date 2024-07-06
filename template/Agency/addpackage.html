@@ -1,0 +1,195 @@
+{% extends 'Agency/index.html' %}
+{% block content %}
+  
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-12 grid-margin">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Add Package</h4>
+              <form class="form-sample" action="{% url 'add_package' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Package Name</label>
+                      <input type="text" name="package_name" class="form-control" required placeholder="Package Name"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Source</label>
+                      <input type="text" name="source" class="form-control" required placeholder="Source" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Destination</label>
+                      <input type="text" name="destination" class="form-control" required placeholder="Destination"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Number of days</label>
+                      <input type="number" name="no_of_days" class="form-control" required placeholder="Number of days" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Number of nights</label>
+                      <input type="number" name="no_of_night" class="form-control" required placeholder="Number of nights" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Price</label>
+                      <input type="text" name="price" class="form-control" required placeholder="Price"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Description</label>
+                      <input type="text" name="description" class="form-control" required placeholder="Description" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Image 1</label>
+                      <input type="file" name="img1" class="form-control" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Image 2</label>
+                      <input type="file" name="img2" class="form-control" required />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Expiry Date</label>
+                      <input type="date" name="expiry_date" class="form-control" required />
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 grid-margin">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">View Package</h4>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Package name</th>
+                      <th>Source</th>
+                      <th>Destination</th>
+                      <th>No. of days</th>
+                      <th>No. of nights</th>
+                      <th>Price</th>
+                      <th>Expiry Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for package in packages %}
+                      <tr>
+                        <td>{{ package.package_name }}</td>
+                        <td>{{ package.source }}</td>
+                        <td>{{ package.destination }}</td>
+                        <td>{{ package.no_of_days }}</td>
+                        <td>{{ package.no_of_night }}</td>
+                        <td>{{ package.price }}</td>
+                        <td>{{ package.expiry_date }}</td>
+                        <td>
+                          <a href="{% url 'edit_package' id=package.id %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                              <path d="M11.293 0l3.354 3.354-10.293 10.293-3.354-3.354L11.293 0zm-9.172 4.172l.793-.793 2.999 2.999-.793.793-2.999-2.999zm4.286 1.153l9.293 9.293-1.439 1.439-9.293-9.293 1.439-1.439zm-1.732 2.732l9.293 9.293-1.439 1.439-9.293-9.293 1.439-1.439z"/>
+                            </svg>
+                          </a>
+                          <a href="{% url 'delete_package' id=package.id %}" style="padding-left: 10px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                              <path d="M2.5 5.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v.5H2v-.5a.5.5 0 0 1 .5-.5zm5-3a.5.5 0 0 1 .5.5V2h-1V2.5a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5V2h-1V2.5a.5.5 0 0 1 .5-.5zM4 6v7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6H4z"/>
+                            </svg>
+                          </a>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .card {
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      size: 28px;
+    }
+
+    .btn-primary {
+      background-color: #5768f3;
+      border-color: #5768f3;
+    }
+
+    .btn-primary:hover {
+      background-color: #4456cc;
+      border-color: #4456cc;
+    }
+
+    .table {
+      width: 100%;
+      background-color: #ffffff;
+      border-collapse: collapse;
+    }
+
+    .table th {
+      background-color: #5768f3;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .table td {
+      padding: 10px;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+  </style>
+
+{% endblock %}

@@ -1,0 +1,485 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Beyond Borders</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body id="home">
+<section class=" w3l-header-4 header-sticky">
+	<!--header-->
+	<header id="site-header" class="fixed-top">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-dark stroke">
+				<h1><a class="navbar-brand" href="{% url 'userHome' %}">
+					</span>Beyond Borders
+				</a></h1>
+				<button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+					<span class="navbar-toggler-icon fa icon-close fa-times"></span>
+					
+				</button>
+	  
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+					<ul class="navbar-nav ml-lg-5">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'userHome' %}">Home <span class="sr-only">(current)</span></a>
+              <li class="nav-item @@contact__active">
+                <a class="nav-link" href="{% url 'userviewbookings' %}">Bookings</a>
+              </li>
+              <li class="nav-item @@contact__active">
+                <a class="nav-link" href="{% url 'user_packages' %}">Tours</a>
+              </li>
+						</li>
+						<li class="nav-item @@contact__active">
+							<a class="nav-link" href="{% url 'user_contact' %}">Contact</a>
+						</li>
+						
+<!-- dropdown -->
+            <div class="dropdown">
+              <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img class="" width="30px" src="../../static/images/logout_logo.jpg" alt="Profile image"> </a>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-header text-center">
+                  <p class="mb-1 mt-3 font-weight-semibold">{{ User.username }}</p>
+                  <p class="font-weight-light text-muted mb-0">{{ User.email }}</p>
+                </div>
+                <a class="dropdown-item" href="{% url 'edit_userprofile' %}">Profile <span class="badge badge-pill badge-danger"></span><i
+                    class="dropdown-item-icon ti-dashboard"></i></a>
+                
+                <a href="{% url 'Logout' %}" class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+              </div>
+            </div>
+<!-- dropdown -->              
+            </div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	  </header>
+	<!--/header-->
+</section>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script> <!-- Common jquery plugin -->
+<!--bootstrap working-->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+{% block content %}
+<!-- <section class="w3l-main-slider" id="home"> -->
+  <section class="slider_section position-relative">
+    <div class="slider_bg_box">
+      <img src="static/images/im/bg_12.jpg" alt="">
+    </div>
+    <div class="slider_bg"></div>
+    <div class="container">
+      <div class="col-md-9 col-lg-8">
+        <div class="detail-box">
+          <h1>
+            Let's enjoy your 
+            <br> Vacations in Ooty
+          </h1>
+          <p>
+            There are many variations of passages. Find out what the best destinations in the world are as awarded by millions of real
+          </p>
+          <div>
+            <a href="{% url 'user_packages' %}" class="slider-link">
+              More Packages
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end slider section -->
+
+  <!-- shop section -->
+
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Latest Packages
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'user_packages' %}">
+              <div class="img-box">
+                <img src="static/images/im/pychara.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Boat House
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $200
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'user_packages' %}">
+              <div class="img-box">
+                <img src="static/images/im/shooting_point.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                 Shooting Point
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $300
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'user_packages' %}">
+              <div class="img-box">
+                <img src="static/images/im/toy_train.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Toy Train
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $110
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'user_packages' %}">
+              <div class="img-box">
+                <img src="static/images/im/Pine_forest_Ooty.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Pine Forest
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $45
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'user_packages' %}">
+              <div class="img-box">
+                <img src="static/images/im/ooty_bota.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Botanical Garden
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $95
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'user_packages' %}">
+              <div class="img-box">
+                <img src="static/images/im/ootymuseum.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Government Museum
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $70
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'user_packages' %}">
+              <div class="img-box">
+                <img src="static/images/im/dottabetta.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Dottabetta
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $400
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'user_packages' %}">
+              <div class="img-box">
+                <img src="static/images/im/tea_fac.JPG" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Tea Factory
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $450
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+      </div>
+    </div>
+  </section>
+  <!-- end shop section -->
+
+  <!-- about section -->
+
+  <section class="about_section  ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="static/images/im/tours/guide.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Our Best Services
+              </h2>
+            </div>
+            <p>
+              Tour guides ensure that itineraries are met and that customers are being informed in an entertaining manner the location they are touring. They are also responsible for ensuring the safety of the group and ensuring that tour groups remain together. Tour guides are employed by tour companies, resorts and attractions.
+            </p>
+            <a href="https://www.ootyindia.com/about-ooty.html">
+             Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- offer section -->
+
+  <section class="offer_section layout_padding">
+    <div class="container-fluid">
+      <h2>
+       OUR KERALA TOP PACKAGES
+      </h2>
+      <div class="row">
+        <div class="col-md-7 px-0">
+          <div class="box offer-box1">
+            <img src="static/images/im/tours/alleppey2.jpg" alt="">
+            <div class="detail-box">
+              <h2>
+                Alleppey
+              </h2>
+              <a href="{% url 'contact' %}">
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 px-0">
+          <div class="box offer-box2">
+            <img src="static/images/im/tours/Vagamon1.jpg" alt="">
+            <div class="detail-box">
+              <h2>
+               Vagamon
+              </h2>
+              <a href="{% url 'contact' %}">
+                Book Now
+              </a>
+            </div>
+          </div>
+          <div class="box offer-box3">
+            <img src="static/images/im/tours/munnar.jpg" alt="">
+            <div class="detail-box">
+              <a href="{% url 'contact' %}">
+                Book Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end offer section -->
+
+  <!-- blog section -->
+
+  <section class="blog_section ">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          LOCATION MAP
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="img-box">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31287.48833616133!2d76.67453857632782!3d11.412188416943012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8bd84b5f3d78d%3A0x179bdb14c93e3f42!2sOoty%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1717034830933!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end blog section -->
+<!-- </section> -->
+{% endblock %}
+
+<section class="w3l-footer-29-main">
+	<div class="footer-29 py-5 ">
+	  <div class="container">
+		  <div class="grid-col-4 footer-top-29">
+			  <div class="footer-list-29 footer-1">
+				  <h2 class="footer-title-29">Contact Us</h2>
+  				<ul>
+	  				<li><p><span class="fa fa-map-marker"></span>Beyond Borders,Pulpally,<br>
+		  				Wayanad,Kerala</p></li>
+			  		<li><a href="tel:+91-701-223-2435"><span class="fa fa-phone"></span> +(91)-934-333-8888</a></li>
+				  	<li><a href="" class="mail"><span class="fa fa-envelope-open-o"></span> abins9014@gmail.com</a></li>
+  				</ul>
+	  			<div class="main-social-footer-29">
+		  			<a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+			  		<a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+				  	<a href="https://www.instagram.com/__abyn__/" class="instagram"><span class="fa fa-instagram"></span></a>
+	  				<a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+  				</div>
+		  	</div>
+			  <div class="footer-list-29 footer-3"></div>
+  			<div class="footer-list-29 footer-3"></div>
+	  		<div class="footer-list-29 footer-3">
+          <div class="properties">
+          </div>
+			  </div>
+			</div>
+    </div>
+	</div>
+</section>
+
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" title="Go to top">
+	<span class="fa fa-chevron-up"></span>
+</button>
+<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function () {
+		scrollFunction()
+	};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			document.getElementById("movetop").style.display = "block";
+		} else {
+			document.getElementById("movetop").style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+<!-- /move top -->
+
+</body>
+
+</html>
